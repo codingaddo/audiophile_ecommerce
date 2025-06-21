@@ -1,24 +1,35 @@
 import { Box, Portal } from '@chakra-ui/react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { motion, AnimatePresence } from 'framer-motion'
 
 import { isNavOpen } from 'store/UISlice'
+import { closeNav } from 'store/UISlice'
+
+const MotionBox = motion(Box)
 
 const Overlay = (): JSX.Element => {
   const navOpen = useSelector(isNavOpen)
+  const dispatch = useDispatch()
 
   return (
     <Portal>
-      <Box
-        position="fixed"
-        visibility={navOpen ? 'visible' : 'hidden'}
-        inset="0"
-        opacity={navOpen ? '1' : '0'}
-        display={{ lg: 'none' }}
-        bg="blackAlpha.600"
-        zIndex="overlay"
-        height="100vh"
-        transition="opacity 0.3s ease-in-out"
-      ></Box>
+      <AnimatePresence>
+        {navOpen ? (
+          <MotionBox
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            position="fixed"
+            inset="0"
+            zIndex={1200}
+            height="100vh"
+            bg="blackAlpha.600"
+            display={{ lg: 'none' }}
+            onClick={() => dispatch(closeNav())}
+          />
+        ) : null}
+      </AnimatePresence>
     </Portal>
   )
 }

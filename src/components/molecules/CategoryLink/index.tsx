@@ -1,11 +1,5 @@
 // @ts-nocheck
-import {
-  HStack,
-  Box,
-  Heading,
-  Image,
-  Text,
-} from '@chakra-ui/react'
+import { HStack, Box, Heading, Image, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 
 const CategoryLink = ({
@@ -25,10 +19,6 @@ const CategoryLink = ({
     position="relative"
     flex="1"
     cursor="pointer"
-    _focusWithin={{
-      outline: '2px dashed red',
-      outlineOffset: '4px',
-    }}
     sx={{
       '&:hover p': {
         color: 'accent',

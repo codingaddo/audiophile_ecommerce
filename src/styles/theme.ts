@@ -50,11 +50,18 @@ const theme = extendTheme({
         listStyleType: 'none',
       },
       'a:focus, button:focus': {
-        outline: '2px dashed red',
-        outlineOffset: '4px',
+        outline: 'none',
       },
       'a:focus:not(:focus-visible), button:focus:not(:focus-visible)': {
         outline: 'none',
+      },
+      // nprogress custom color
+      '#nprogress .bar': {
+        background: '#D87D4A !important',
+        height: '3px',
+      },
+      '#nprogress .peg': {
+        boxShadow: '0 0 10px #D87D4A, 0 0 5px #D87D4A',
       },
     },
   },
