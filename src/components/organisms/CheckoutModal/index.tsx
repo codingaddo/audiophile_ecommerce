@@ -16,11 +16,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import Link from 'next/link'
 
 import { clearCart, cartItems } from 'store/CartSlice'
+import { useRouter } from 'next/router'
 import { useModal } from 'store/ModalContextProvider'
 import SummaryItem from 'components/molecules/SummaryItem/'
 import useCartTotals from 'hooks/useCartTotals'
 
 const CheckoutModal = (): JSX.Element => {
+  const router = useRouter()
   const items = useSelector(cartItems)
   const { grandTotal } = useCartTotals()
   const [showMore, setShowMore] = useBoolean(false)
@@ -30,11 +32,13 @@ const CheckoutModal = (): JSX.Element => {
   const handleClick = () => {
     onCheckoutModalClose()
     dispatch(clearCart())
+    router.push('/')
   }
 
   const onModalClose = () => {
     onCheckoutModalClose()
     dispatch(clearCart())
+    router.push('/')
   }
 
   return (

@@ -12,6 +12,7 @@ import {
   Box,
 } from '@chakra-ui/react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useModal } from 'store/ModalContextProvider'
 import CartItem from 'components/molecules/CartItem'
@@ -24,6 +25,7 @@ import {
 } from 'store/CartSlice'
 
 const CartModal = (): JSX.Element => {
+  const router = useRouter()
   const items = useSelector(cartItems)
   const amount = useSelector(totalAmount)
   const quantity = useSelector(totalQuantity)
@@ -34,6 +36,7 @@ const CartModal = (): JSX.Element => {
   const emptyCart = () => {
     dispatch(clearCart())
     onCartModalClose()
+    if (router.pathname === '/checkout') router.push('/')
     toast({
       title: 'Cart cleared',
       status: 'success',

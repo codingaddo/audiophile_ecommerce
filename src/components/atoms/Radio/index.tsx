@@ -22,6 +22,12 @@ const Radio = (props: UseRadioProps & { children: ReactNode }): JSX.Element => {
       mb="1rem"
       cursor="pointer"
       sx={{
+        '&:hover': {
+          borderColor: 'accent',
+        },
+        '&:hover div': {
+          borderColor: 'accent',
+        },
         'input:checked + div::after': {
           transform: 'scale(1)',
         },
