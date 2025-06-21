@@ -12,12 +12,12 @@ const CheckoutPage = (): JSX.Element | null => {
 
   useEffect(() => {
     if (quantity === 0) {
-      router.replace('/');
+      router.replace('/')
     }
   }, [quantity, router])
 
   if (quantity === 0) {
-    return null; // prevent UI flash while redirecting
+    return null // prevent UI flash while redirecting
   }
 
   return (
