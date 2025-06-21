@@ -38,7 +38,12 @@ const Footer = (): JSX.Element => {
           spacing={{ base: '3rem', sm: '2rem' }}
           justify={{ lg: 'space-between' }}
         >
-          <Logo />
+          <Box
+            display={{ base: 'flex', md: 'block' }}
+            justifyContent={{ base: 'center', md: 'flex-start' }}
+          >
+            <Logo />
+          </Box>
           <FooterLinks />
         </Stack>
         <SimpleGrid
@@ -51,7 +56,7 @@ const Footer = (): JSX.Element => {
             Audiophile is an all in one stop to fulfill your audio needs.
             We&apos;re a small team of music lovers and sound specialists who
             are devoted to helping you get the most out of personal audio. Come
-            and visit our demo facility - we’re open 7 days a week.
+            and visit our demo facility - we&apos;re open 7 days a week.
           </Text>
           <Text variant="darkBackground" gridArea={{ sm: 'b' }}>
             Copyright 2021. All Rights Reserved
