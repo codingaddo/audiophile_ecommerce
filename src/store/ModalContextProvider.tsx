@@ -25,7 +25,9 @@ export const useModal = (): ContextProps => {
   return useContext(ModalContext)
 }
 
-const ModalContextProvider: React.FC = ({ children }): JSX.Element => {
+const ModalContextProvider = ({
+  children,
+}: React.PropsWithChildren): JSX.Element => {
   const {
     isOpen: isCartModalOpen,
     onOpen: onCartModalOpen,

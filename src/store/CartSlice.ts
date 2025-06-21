@@ -18,7 +18,7 @@ const persistedCart = loadCart()
 
 const cartSlice = createSlice({
   name: 'cart',
-  initialState: persistedCart ? persistedCart : initialCartState,
+  initialState: initialCartState,
   reducers: {
     addItemToCart: (state, action: PayloadAction<CartItem>) => {
       const addedItem = action.payload
@@ -53,10 +53,14 @@ const cartSlice = createSlice({
     clearCart: () => {
       return initialCartState
     },
+    hydrateCart: (state, action: PayloadAction<CartSlice>) => {
+      return action.payload || initialCartState
+    },
   },
 })
 
-export const cartItems = (state: RootState): CartItem[] => state.cart?.items ?? []
+export const cartItems = (state: RootState): CartItem[] =>
+  state.cart?.items ?? []
 
 export const totalAmount = (state: RootState): number => {
   const items = state.cart?.items ?? []
@@ -72,7 +76,12 @@ export const totalAmount = (state: RootState): number => {
 export const totalQuantity = (state: RootState): number =>
   state.cart?.totalQuantity ?? 0
 
-export const { addItemToCart, increaseQuantity, decreaseQuantity, clearCart } =
-  cartSlice.actions
+export const {
+  addItemToCart,
+  increaseQuantity,
+  decreaseQuantity,
+  clearCart,
+  hydrateCart,
+} = cartSlice.actions
 
 export default cartSlice.reducer
