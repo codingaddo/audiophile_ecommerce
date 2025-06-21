@@ -63,6 +63,10 @@ const theme = extendTheme({
       '#nprogress .peg': {
         boxShadow: '0 0 10px #D87D4A, 0 0 5px #D87D4A',
       },
+      '#nprogress .spinner-icon': {
+        borderTopColor: '#D87D4A',
+        borderLeftColor: '#D87D4A',
+      }
     },
   },
 })

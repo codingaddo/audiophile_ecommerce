@@ -8,7 +8,8 @@ const GoBackLink = (): JSX.Element => {
     <Box
       as="a"
       onClick={() => router.back()}
-      mt={{ base: '1rem', sm: '2rem', lg: '5rem' }}
+      display="inline-block"
+      mt={{ base: '2rem', sm: '3rem', lg: '3rem' }}
       fontSize="0.9375rem"
       textTransform="capitalize"
       cursor="pointer"
