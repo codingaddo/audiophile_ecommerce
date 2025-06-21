@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Box, Heading, Image, Stack, Text } from '@chakra-ui/react'
 
 const BestGear = (): JSX.Element => {

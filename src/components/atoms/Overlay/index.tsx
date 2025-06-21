@@ -13,9 +13,10 @@ const Overlay = (): JSX.Element => {
 
   return (
     <Portal>
-      <AnimatePresence>
-        {navOpen ? (
+      {navOpen && (
+        <AnimatePresence>
           <MotionBox
+            key="overlay"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -28,8 +29,8 @@ const Overlay = (): JSX.Element => {
             display={{ lg: 'none' }}
             onClick={() => dispatch(closeNav())}
           />
-        ) : null}
-      </AnimatePresence>
+        </AnimatePresence>
+      )}
     </Portal>
   )
 }

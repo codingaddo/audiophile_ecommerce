@@ -1,4 +1,4 @@
-import { Flex, Button as ChakraButton, Center } from '@chakra-ui/react'
+import { Box, Center } from '@chakra-ui/react'
 
 const ProductQuantity = ({
   quantity,
@@ -14,13 +14,19 @@ const ProductQuantity = ({
   height: string
 }): JSX.Element => {
   return (
-    <Flex bg="gray" alignItems="center" width={width} height={height}>
+    <Box
+      display="flex"
+      bg="gray"
+      alignItems="center"
+      width={width}
+      height={height}
+    >
       <Button sign="-" handleClick={decrement} />
       <Center fontSize="0.8125rem" fontWeight="bold" width="20%">
         {quantity}
       </Center>
       <Button sign="+" handleClick={increment} />
-    </Flex>
+    </Box>
   )
 }
 
@@ -32,7 +38,8 @@ const Button = ({
   handleClick: () => void
 }): JSX.Element => {
   return (
-    <ChakraButton
+    <Box
+      as="button"
       onClick={handleClick}
       width="40%"
       height="100%"
@@ -48,7 +55,7 @@ const Button = ({
       }}
     >
       {sign}
-    </ChakraButton>
+    </Box>
   )
 }
 

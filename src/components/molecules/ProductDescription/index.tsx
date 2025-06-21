@@ -25,7 +25,7 @@ const ProductDescription = ({ product }: { product: Product }): JSX.Element => {
       title: `Item '${product.name}' was added to cart`,
       status: 'success',
       duration: 4000,
-      position: 'top-left',
+      position: 'bottom-right',
       isClosable: true,
     })
   }

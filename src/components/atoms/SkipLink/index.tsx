@@ -1,8 +1,8 @@
-import { Button } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 
 const SkipLink = (): JSX.Element => {
   return (
-    <Button
+    <Box
       as="a"
       href="#main"
       position="absolute"
@@ -14,9 +14,12 @@ const SkipLink = (): JSX.Element => {
         transform: 'translateX(0)',
       }}
       transition="transform 0.3s ease-out"
+      p="1rem"
+      bg="white"
+      color="black"
     >
       Skip to content
-    </Button>
+    </Box>
   )
 }
 

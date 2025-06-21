@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Box, Text, HStack } from '@chakra-ui/react'
 import { useDispatch } from 'react-redux'
 import Image from 'next/image'

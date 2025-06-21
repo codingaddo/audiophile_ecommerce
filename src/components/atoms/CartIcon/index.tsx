@@ -1,4 +1,4 @@
-import { Button, Center } from '@chakra-ui/react'
+import { Box, Center } from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
 import Image from 'next/image'
 
@@ -10,7 +10,8 @@ const CartIcon = (): JSX.Element => {
   const quantity = useSelector(totalQuantity)
 
   return (
-    <Button
+    <Box
+      as="button"
       position="relative"
       bg="transparent"
       border="none"
@@ -46,7 +47,7 @@ const CartIcon = (): JSX.Element => {
           {quantity}
         </Center>
       )}
-    </Button>
+    </Box>
   )
 }
 

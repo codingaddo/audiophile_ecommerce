@@ -37,7 +37,7 @@ const CartModal = (): JSX.Element => {
       title: 'Cart is empty',
       status: 'success',
       duration: 4000,
-      position: 'top-left',
+      position: 'bottom-right',
       isClosable: true,
     })
   }

@@ -9,12 +9,10 @@ export type CartSlice = {
   totalQuantity: number
 }
 
-const initialCartState: CartSlice = {
+const initialCartState: CartSlice = loadCart() ?? {
   items: [],
   totalQuantity: 0,
 }
-
-const persistedCart = loadCart()
 
 const cartSlice = createSlice({
   name: 'cart',

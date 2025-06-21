@@ -1,11 +1,5 @@
 // @ts-nocheck
-import {
-  Box,
-  Heading,
-  Image,
-  Button,
-  SimpleGrid,
-} from '@chakra-ui/react'
+import { Box, Heading, Image, Button, SimpleGrid } from '@chakra-ui/react'
 import Link from 'next/link'
 
 import FadeInOnScroll from 'components/organisms/FadeInOnScroll'
