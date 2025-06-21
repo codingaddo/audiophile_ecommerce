@@ -66,7 +66,7 @@ const theme = extendTheme({
       '#nprogress .spinner-icon': {
         borderTopColor: '#D87D4A',
         borderLeftColor: '#D87D4A',
-      }
+      },
     },
   },
 })
