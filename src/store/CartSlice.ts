@@ -9,10 +9,12 @@ export type CartSlice = {
   totalQuantity: number
 }
 
-const initialCartState: CartSlice = loadCart() ?? {
+const emptyCartState: CartSlice = {
   items: [],
   totalQuantity: 0,
 }
+
+const initialCartState: CartSlice = loadCart() ?? emptyCartState
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -48,9 +50,7 @@ const cartSlice = createSlice({
         })
         .filter(item => item.quantity > 0)
     },
-    clearCart: () => {
-      return initialCartState
-    },
+    clearCart: () => emptyCartState,
     hydrateCart: (state, action: PayloadAction<CartSlice>) => {
       return action.payload || initialCartState
     },

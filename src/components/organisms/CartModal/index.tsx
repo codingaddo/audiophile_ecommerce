@@ -33,10 +33,11 @@ const CartModal = (): JSX.Element => {
 
   const emptyCart = () => {
     dispatch(clearCart())
+    onCartModalClose()
     toast({
-      title: 'Cart is empty',
+      title: 'Cart cleared',
       status: 'success',
-      duration: 4000,
+      duration: 3000,
       position: 'bottom-right',
       isClosable: true,
     })
