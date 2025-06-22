@@ -70,7 +70,7 @@ Redux Toolkit is a library that makes working with Redux a lot easier, as it eli
 It also allows you to update state in a 'mutating way' thanks to Immer library it uses under the hood.
 In the application I'm using Redux to hold mostly state of cart, persist it to local storage and retrieve it when the app is loaded.  
 
-#### Futrue Trends
+#### Future Trends
 -Use supabase as a backend 
 -Include user authenticaion
 -Add admin dashboard for product management
