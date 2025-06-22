@@ -71,6 +71,7 @@ It also allows you to update state in a 'mutating way' thanks to Immer library i
 In the application I'm using Redux to hold mostly state of cart, persist it to local storage and retrieve it when the app is loaded.  
 
 #### Future Trends
--Use supabase as a backend 
--Include user authenticaion
--Add admin dashboard for product management
+- Use supabase as a backend 
+- Include user authenticaion
+- Add admin dashboard for product management
+
