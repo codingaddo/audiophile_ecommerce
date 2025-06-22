@@ -14,6 +14,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { useAuth } from 'contexts/AuthContext'
 import { useModal } from 'store/ModalContextProvider'
 import CartItem from 'components/molecules/CartItem'
 
@@ -25,6 +26,7 @@ import {
 } from 'store/CartSlice'
 
 const CartModal = (): JSX.Element => {
+  const { user } = useAuth()
   const router = useRouter()
   const items = useSelector(cartItems)
   const amount = useSelector(totalAmount)
@@ -94,7 +96,8 @@ const CartModal = (): JSX.Element => {
                 $ {amount.toLocaleString('en-US')}
               </Text>
             </HStack>
-            <Link href="/checkout" passHref>
+            {user ? (
+              <Link href="/checkout" passHref>
               <Button
                 as="a"
                 cursor="pointer"
@@ -104,6 +107,14 @@ const CartModal = (): JSX.Element => {
                 Checkout
               </Button>
             </Link>
+            ) : (
+              <Button width="100%" onClick={() => {
+                onCartModalClose()
+                router.push('/auth/sign-in')
+              }}>
+                Sign in to checkout
+              </Button>
+            )}
           </Box>
         ) : (
           <Box

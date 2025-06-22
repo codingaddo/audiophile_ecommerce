@@ -19,9 +19,12 @@ import { clearCart, cartItems } from 'store/CartSlice'
 import { useRouter } from 'next/router'
 import { useModal } from 'store/ModalContextProvider'
 import SummaryItem from 'components/molecules/SummaryItem/'
+import { useAuth } from 'contexts/AuthContext'
+import { supabase } from 'lib/supabaseClient'
 import useCartTotals from 'hooks/useCartTotals'
 
 const CheckoutModal = (): JSX.Element => {
+  const { user } = useAuth()
   const router = useRouter()
   const items = useSelector(cartItems)
   const { grandTotal } = useCartTotals()
@@ -29,7 +32,29 @@ const CheckoutModal = (): JSX.Element => {
   const { isCheckoutModalOpen, onCheckoutModalClose } = useModal()
   const dispatch = useDispatch()
 
-  const handleClick = () => {
+  const handleClick = async () => {
+    // If user logged in, persist order in Supabase first
+    if (user && items.length) {
+      const { data: orderRows, error: orderErr } = await supabase
+        .from('orders')
+        .insert({ user_id: user.id, total: grandTotal })
+        .select()
+        .single()
+
+      if (!orderErr && orderRows) {
+        const orderId = orderRows.id
+        const orderItemsPayload = items.map(ci => ({
+          order_id: orderId,
+          product_id: ci.id,
+          quantity: ci.quantity,
+          unit_price: ci.price,
+          image_url: ci.cartImage,
+        }))
+        await supabase.from('order_items').insert(orderItemsPayload)
+      }
+      // We ignore errors for now; could toast to user
+    }
+
     onCheckoutModalClose()
     dispatch(clearCart())
     router.push('/')

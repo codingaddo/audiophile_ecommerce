@@ -21,6 +21,7 @@ import ModalContextProvider from 'store/ModalContextProvider'
 import CartModal from 'components/organisms/CartModal'
 import CheckoutModal from 'components/organisms/CheckoutModal'
 import Overlay from './../components/atoms/Overlay/index'
+import { AuthProvider } from 'contexts/AuthContext'
 
 function HydrateCartOnClient() {
   const dispatch = useDispatch()
@@ -55,13 +56,15 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
     <ChakraProvider theme={theme} resetCSS>
       <Provider store={store}>
         <ModalContextProvider>
-          <HydrateCartOnClient />
+          <AuthProvider>
+            <HydrateCartOnClient />
           <Header />
           <Component {...pageProps} />
           <Footer />
           <CartModal />
           <CheckoutModal />
           <Overlay />
+          </AuthProvider>
         </ModalContextProvider>
       </Provider>
     </ChakraProvider>

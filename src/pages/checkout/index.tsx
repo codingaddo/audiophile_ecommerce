@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import RequireAuth from 'components/guards/RequireAuth'
 import CheckoutPageTemplate from 'components/templates/CheckoutPage'
 
 const CheckoutPage = (): JSX.Element => {
@@ -7,7 +8,9 @@ const CheckoutPage = (): JSX.Element => {
       <Head>
         <title>Audiophile shop - checkout</title>
       </Head>
-      <CheckoutPageTemplate />
+      <RequireAuth>
+        <CheckoutPageTemplate />
+      </RequireAuth>
     </>
   )
 }
