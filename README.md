@@ -26,7 +26,7 @@ Users can perform the following:
 
 ### Links
 
-[Live Site URL](https://audiophile-ecommerce-mbart13.vercel.app/)
+[Live Site URL](https://audiophile-ecommerce-l6rb6uy4f-codingaddos-projects.vercel.app/)
 
 ### Setup
 
