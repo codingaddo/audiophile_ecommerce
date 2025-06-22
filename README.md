@@ -7,6 +7,7 @@
   - [Screenshot](#screenshot)
   - [Setup](#setup)
   - [Built with](#built-with)
+  - [Future Trends](#future-trends)
 
 ## Overview
 
@@ -68,3 +69,8 @@ Redux is one of the oldest and most popular state management libraries for React
 Redux Toolkit is a library that makes working with Redux a lot easier, as it eliminates a lot of boilerplate. With Redux Toolkit you can create so called slices (pieces of state in your application) that combine action creators and reducers. It automatically sets up Redux DevTools by default.
 It also allows you to update state in a 'mutating way' thanks to Immer library it uses under the hood.
 In the application I'm using Redux to hold mostly state of cart, persist it to local storage and retrieve it when the app is loaded.  
+
+#### Futrue Trends
+-Use supabase as a backend 
+-Include user authenticaion
+-Add admin dashboard for product management
